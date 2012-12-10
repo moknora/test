@@ -24,6 +24,9 @@ Ext.application({
     	'booking.FilterBar'
     ],
 
+    viewport: {
+        autoMaximize: true // Causes the URL bar to be hidden once the application loads.
+    },
     icon: {
         '57': 'resources/icons/Icon.png',
         '72': 'resources/icons/Icon~ipad.png',
