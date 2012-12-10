@@ -7,13 +7,14 @@ Ext.define('SoCool.controller.ctrfacebook', {
             }
         }
     },
-    
+
     init: function(application) {
-	    this.callParent();
-	    Parse.initialize("KoatQ44GzePw6TFb9uOGhQavjfGZQvF7caD3AlyB", "Kh7jqqiQXytmpNmYeAx3jh3QdxYNVZLgukGvKzjf");
+        this.callParent();
+
+	    Parse.initialize("Your Parse.com App ID", "Your Parse.com JS ID");
         window.fbAsyncInit = function() {
 	        Parse.FacebookUtils.init({
-		        appId      : '443176775731159', // Facebook App ID
+		        appId      : "Your Facebook Client ID", // Facebook App ID
 		        channelUrl : '//WWW.YOUR_DOMAIN.COM/channel.html', // Channel File
 		        status     : true, // check login status
 		        cookie     : true, // enable cookies to allow Parse to access the session

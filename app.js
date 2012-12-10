@@ -4,7 +4,6 @@ Ext.Loader.setPath({
     'SoCool': 'app'
 });
 //</debug>
-
 Ext.application({
     models: ["Booking"],
     
