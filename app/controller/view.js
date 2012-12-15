@@ -2,9 +2,21 @@ Ext.define('SoCool.controller.view', {
     extend: 'Ext.app.Controller',
     requires: [
         'SoCool.view.Login',
-        'SoCool.view.Map'
+        'SoCool.view.Map',
+        'SoCool.view.Main',
+        'SoCool.controller.ctrfacebook'
     ],
     config: {
+        refs: {
+        	bookingList: 'bookingList',
+        	main: 'main',
+        	isPast: '#isPast',
+        	filterByIsUpcoming: '#filterByIsUpcoming',
+        	filterByIsPast: '#filterByIsPast',
+        	basketPopUpBtn: '#basketPopUpBtn',
+        	pushPopUpBtn: '#pushPopUpBtn',
+        	postBtn: '#postBtn'
+        },
         control: {
 	        "#loginBtn":{
 	        	tap: 'onLoginBtn'
@@ -23,8 +35,16 @@ Ext.define('SoCool.controller.view', {
 
         	"#reviewPopUpButton":{
 	        	tap: 'tappedReviewPopUpButton'
-        	}
-            
+        	},
+        	basketPopUpBtn:{
+	        	tap: 'tappedBasketPopUpBtn'
+        	},
+        	pushPopUpBtn:{
+	        	tap: 'tappedPushPopUpBtn'
+        	},
+        	postBtn:{
+	        	tap: 'tappedPostBtn'
+        	}            
         }
     },
     
@@ -83,34 +103,21 @@ Ext.define('SoCool.controller.view', {
     },
     onMapBtn: function(button, e, options) {
         this.addViewMap();
+/*
+		Ext.device.Geolocation.getCurrentPosition({
+			success: function(position) {
+				console.log(position.coords);
+			},
+			failure: function() {
+				console.log('something went wrong!');
+			}
+		});
+
+*/
+
+
     },
      
-     
-/*     
-        onMovieTap: function(record) {
-        WL.app.updateUrl('movies/' + record.get('rottenId'));
-        this.showMovie(record);
-    },
-    
-        showMovie: function(record) {
-        WL.currentMovie = record;
-
-        if (!this.movieDetailCmp) {
-            this.movieDetailCmp = Ext.widget('movieDetail');
-        }
-
-        this.getToolbar().setTitle(record.get('title'));
-
-        Ext.Viewport.animateActiveItem(this.movieDetailCmp, {
-            type: 'slide',
-            direction: 'left'
-        });
-
-        // This needs to be after the item is painted so we can set the content height
-        this.movieDetailCmp.setRecord(record);
-    },
-    
-    */
     
     
     tappedReviewPopUpButton: function(button, e, options) {

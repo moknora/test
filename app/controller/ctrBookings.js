@@ -1,13 +1,21 @@
 Ext.define('SoCool.controller.ctrBookings', {
     extend: 'Ext.app.Controller',
-    
+    requires: [
+        'SoCool.view.Login',
+        'SoCool.view.Map',
+        'SoCool.view.Main',
+        'SoCool.controller.ctrfacebook'
+    ],    
     config: {
         refs: {
         	bookingList: 'bookingList',
         	main: 'main',
         	isPast: '#isPast',
         	filterByIsUpcoming: '#filterByIsUpcoming',
-        	filterByIsPast: '#filterByIsPast'
+        	filterByIsPast: '#filterByIsPast',
+        	        	loginBtn: '#loginBtn'
+
+
         },
         control: {
         	isPast: {
@@ -20,8 +28,8 @@ Ext.define('SoCool.controller.ctrBookings', {
            	filterByIsPast: {
 	        	toggle: 'onFilterByIsPastToggle'
         	},
-        	'#sortBy': {
-	        	toggle: 'onSortByToggle'
+        	'#sortBySegBtn': {
+	        	toggle: 'onsortBySegBtnToggle'
         	}            
         }
     },
@@ -35,7 +43,8 @@ Ext.define('SoCool.controller.ctrBookings', {
         if (btn.getText() === 'Upcoming'){
 	    	this.getFilterByIsUpcoming().show();
 	    	this.getFilterByIsPast().hide();
-	    	
+	    	//SoCool.app.getController('SoCool.controller.ctrfacebook').onActionByLoginStatus();
+//Ext.getCmp('ctrFacebook').onActionByLoginStatus();
 	    	//Ext.getStore('Bookings').loadPage(1);	    
         }
         else{
@@ -43,7 +52,7 @@ Ext.define('SoCool.controller.ctrBookings', {
 	    	this.getFilterByIsPast().show();        		        
         }
     },
-    onSortByToggle: function(segBtn, btn){
+    onsortBySegBtnToggle: function(segBtn, btn){
 
         this.getBookingList().setStore(Ext.getStore('Bookings'));
         this.getBookingList().setMasked({ xtype: 'loadmask' });

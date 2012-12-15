@@ -5,9 +5,9 @@ Ext.Loader.setPath({
 });
 //</debug>
 Ext.application({
-    models: ["Booking"],
+    models: ["XMLModel","Booking"],
     
-    stores: ["Bookings"],
+    stores: ["Config","Bookings"],
 
     controllers: ["view","ctrBookings","ctrfacebook"],
 

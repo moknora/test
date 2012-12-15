@@ -61,10 +61,10 @@ Ext.define('SoCool.view.Main', {
 		            	xtype: 'button',
 		            	hidden: true,
 		            	align: 'right',
-		            	id: 'accountBtn',
-		            	text: 'Account'
+		            	id: 'postBtn',
+		            	text: 'Post'
 		            }
-		          	        	
+      	
 	        	
 	        	]
         	}/*,

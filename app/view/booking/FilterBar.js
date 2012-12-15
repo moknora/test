@@ -91,7 +91,7 @@ Ext.define('SoCool.view.booking.FilterBar', {
 			{
 				align: 'right',
 				xtype: 'segmentedbutton',
-				id: 'sortBy',
+				id: 'sortBySegBtn',
 				flex: 0.5,
 
 				layout: {
