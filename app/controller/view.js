@@ -104,8 +104,7 @@ Ext.define('SoCool.controller.view', {
     onMapBtn: function(button, e, options) {
         this.addViewMap();
 
-//fdsa
-
+//add Map branch only
 /*
 		Ext.device.Geolocation.getCurrentPosition({
 			success: function(position) {
