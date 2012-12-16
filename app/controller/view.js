@@ -4,7 +4,8 @@ Ext.define('SoCool.controller.view', {
         'SoCool.view.Login',
         'SoCool.view.Map',
         'SoCool.view.Main',
-        'SoCool.controller.ctrfacebook'
+        'SoCool.controller.ctrfacebook',
+        'SoCool.view.Post'
     ],
     config: {
         refs: {
@@ -36,6 +37,9 @@ Ext.define('SoCool.controller.view', {
         	"#reviewPopUpButton":{
 	        	tap: 'tappedReviewPopUpButton'
         	},
+        	"#backFromPostBtn":{
+	        	tap: 'tappedBackFromPostBtn'
+        	},
         	basketPopUpBtn:{
 	        	tap: 'tappedBasketPopUpBtn'
         	},
@@ -44,7 +48,16 @@ Ext.define('SoCool.controller.view', {
         	},
         	postBtn:{
 	        	tap: 'tappedPostBtn'
-        	}            
+        	}/*,
+        	
+        	Ext.Viewport:{
+        		activeitemchange: 'activeItemChanged'
+        	}/*,
+        	"#viewMain":{
+        	    activate: 'activatedMain'
+        	}*/
+        	
+        	     
         }
     },
     
@@ -74,6 +87,7 @@ Ext.define('SoCool.controller.view', {
 	        type: 'slide',
 	        direction: 'right'
         });
+        SoCool.app.getController('SoCool.controller.ctrfacebook').onActionByLoginStatus();
 	    //Ext.getCmp('viewLogin').hide();
     },
     
@@ -83,7 +97,7 @@ Ext.define('SoCool.controller.view', {
     },
     
     addViewMap: function() {
-        if (!this.viewMap) {
+/*        if (!this.viewMap) {
             this.viewMap = Ext.create('SoCool.view.Map');
         }
         //Ext.Viewport.setActiveItem(this.viewMap);
@@ -92,6 +106,19 @@ Ext.define('SoCool.controller.view', {
 	        direction: 'right'
         });
         Ext.getCmp('viewMap').showMapText();
+
+
+*/
+
+        if (!this.viewPost) {
+            this.viewPost = Ext.create('SoCool.view.Post');
+        }
+        //Ext.Viewport.setActiveItem(this.viewMap);
+        Ext.Viewport.animateActiveItem(this.viewPost, {
+	        type: 'slide',
+	        direction: 'up'
+        });
+
     },
     hideViewMap: function(button, e, options) {
         //Ext.Viewport.setActiveItem(Ext.getCmp('viewMain'));
@@ -99,6 +126,7 @@ Ext.define('SoCool.controller.view', {
 	        type: 'slide',
 	        direction: 'left'
         });
+        SoCool.app.getController('SoCool.controller.ctrfacebook').onActionByLoginStatus();
 	    //Ext.getCmp('viewMap').hide();
     },
     onMapBtn: function(button, e, options) {
@@ -119,8 +147,28 @@ Ext.define('SoCool.controller.view', {
 
 
     },
-     
     
+    tappedPostBtn: function(button, e, options) {
+        if (!this.viewPost) {
+            this.viewPost = Ext.create('SoCool.view.Post');
+        }
+        //Ext.Viewport.setActiveItem(this.viewMap);
+        Ext.Viewport.animateActiveItem(this.viewPost, {
+	        type: 'slide',
+	        direction: 'up'
+        });
+        //Ext.getCmp('viewMap').showMapText();   
+    },
+     
+    tappedBackFromPostBtn: function(button, e, options) {
+        Ext.Viewport.animateActiveItem(Ext.getCmp('viewMain'), {
+	        type: 'slide',
+	        direction: 'down'
+        });
+//        SoCool.app.getController('SoCool.controller.ctrfacebook').onActionByLoginStatus();
+	    //Ext.getCmp('viewLogin').hide();
+        //Ext.getCmp('viewMap').showMapText();   
+    },    
     
     tappedReviewPopUpButton: function(button, e, options) {
     

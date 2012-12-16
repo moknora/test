@@ -7,7 +7,7 @@ Ext.Loader.setPath({
 Ext.application({
     models: ["XMLModel","Booking"],
     
-    stores: ["Config","Bookings"],
+    stores: ["Bookings"],
 
     controllers: ["view","ctrBookings","ctrfacebook"],
 
@@ -52,6 +52,7 @@ Ext.application({
 
         // Destroy the #appLoadingIndicator element
         Ext.fly('appLoadingIndicator').destroy();
+        
 
         // Initialize the main view
         

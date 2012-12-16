@@ -3,7 +3,8 @@ Ext.define('SoCool.view.Main', {
     xtype: 'main',
     id: 'viewMain',
     requires: [
-        'SoCool.view.booking.List'
+        'SoCool.view.booking.List',
+        'SoCool.controller.ctrfacebook'
     ],
     
     config: {
@@ -74,6 +75,7 @@ Ext.define('SoCool.view.Main', {
             */
         ]
     },
+
     
     initialize: function() {
 	    this.callParent();
