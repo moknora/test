@@ -17,6 +17,12 @@ Ext.define('SoCool.view.Post', {
 
     extend: 'Ext.Panel',
     id: 'viewPost',
+    requires: [
+        'Ext.field.DatePicker',
+        'Ext.form.FieldSet',
+        'Ext.field.Number'
+    ],
+    
     config: {
         padding: 20,
         scrollable: true,
@@ -39,6 +45,7 @@ Ext.define('SoCool.view.Post', {
                         ui: 'back',
                         text: 'Back'
                     },
+                    {	xtype: 'spacer'},
                    	{
                         xtype: 'button',
                         align: 'right',
@@ -53,31 +60,59 @@ Ext.define('SoCool.view.Post', {
                     {
                         xtype: 'textfield',
                         id: 'titleField',
+                        label: 'Title',
                         placeHolder: 'Title?'
                     },
                     {
-                        xtype: 'textfield',
-                        id: 'subtitleField',
-                        placeHolder: 'subtitle?'
+                        xtype: 'numberfield',
+                        id: 'maxMembField',
+                        label: 'Members',
+                        placeHolder: 'How many members?'
                     },
                     {
                         xtype: 'textfield',
-                        id: 'scheduleField',
-                        placeHolder: 'subtitle?'
+                        id: 'locationField',
+                        label: 'Location',
+                        placeHolder: 'Where?'
                     },
+
+                    
                     {
-                        xtype: 'textfield',
-                        id: 'subtitleField',
-                        placeHolder: 'subtitle?'
-                    }                    
+                        xtype: 'fieldset',
+                        items: [
+                            {
+                                xtype: 'datepickerfield',
+                                label: 'MeetingDate',
+                                id: 'meetingDate',
+                                name: 'meetingDate',
+                                value: new Date()
+                                
+                            },
+                            {
+                                xtype: 'numberfield',
+                                id: 'hourField',
+                                label: 'Hour',
+                                placeHolder: 'What time?'
+                            },
+                            {
+                                xtype: 'numberfield',
+                                id: 'minField',
+                                label: 'Minute',
+                                placeHolder: 'What time?'
+                            }   
+                        ]
+                        
+                    
+                    },
+
+                    {
+                        xtype: 'textareafield',
+                        id: 'descriptionField',
+                        label: 'Description',
+                        placeHolder: 'Appeal yourself'
+                    }                 
                 ]
             },
-            {
-                xtype: 'button',
-                id: 'addRunButton',
-                ui: 'facebook',
-                text: 'Add Jog'
-            }  
         ]
     }
 });

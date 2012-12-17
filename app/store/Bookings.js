@@ -11,7 +11,6 @@ Ext.define('SoCool.store.Bookings', {
         	{
         		rottonId:	"100001382765294",
         		title:		"Interesting Booking",
-        		subTitle:	"The 1st Booking in SoCool",
         		schedule:	"2012-12-24 3:20:01 PM",
         		location:	"청담안",
         		description:	"재밌다 신난다 가슴떨린다",
@@ -22,7 +21,6 @@ Ext.define('SoCool.store.Bookings', {
         	{
         		rottonId:	"100001382765294",
         		title:		"Interesting Booking2",
-        		subTitle:	"The 2nd Booking in SoCool",
         		schedule:	"2012-12-25 3:20:01 PM",
         		location:	"청담안2",
         		description:	"재밌다 신난다 가슴떨린다",
@@ -33,7 +31,6 @@ Ext.define('SoCool.store.Bookings', {
         	{
         		rottonId:	"100001382765294",
         		title:		"Interesting Booking3",
-        		subTitle:	"The 3rd Booking in SoCool",
         		schedule:	"2012-12-26 4:20:01 PM",
         		location:	"청담안3",
         		description:	"재밌다 신난다 가슴떨린다",
@@ -42,13 +39,16 @@ Ext.define('SoCool.store.Bookings', {
         		nMembers:	2
         	}]
 
-        /*proxy: {
+/*        proxy: {
             type: 'jsonp',
-            url: '/movies',
+            url: 'https://api.parse.com/1/classes/MeetingRoom',
+//            method: 'GET',
+            callbackKey: "callback",
+            
 
             reader: {
                 type: 'json',
-                rootProperty: 'movies'
+                rootProperty: 'results'
             }
         }*/
     }

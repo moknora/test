@@ -20,7 +20,8 @@ Ext.define('SoCool.view.booking.List', {
     
     
     requires: [
-    	'SoCool.view.booking.FilterBar'
+    	'SoCool.view.booking.FilterBar',
+    	'Ext.plugin.PullRefresh'
     ],
 
     config: {
@@ -30,6 +31,28 @@ Ext.define('SoCool.view.booking.List', {
 	    	{ xtype: 'bookingFilterBar' , docked:'top'}
 	    	//{ xtype: 'movieSearchBar' , docked:'top' , hidden:true},  
     	],
+    	plugins:[{
+            xclass: 'Ext.plugin.PullRefresh',
+            pullRefreshText: 'Pull down for more new Meetings!',
+/*            listeners: {
+			    show: function(list, opts){
+        			SoCool.app.getController('SoCool.controller.ctrBookings').onReload();
+    			}
+			}
+*/			
+			refreshFn: function(plugin) {
+				SoCool.app.getController('SoCool.controller.ctrBookings').onReload();
+/*        		var store = plugin.up().getStore();
+        		if (store.hasListener('load')) {
+            		store.fireEvent('load', store, store.getData(), true);
+				}
+*/
+        		
+    		}
+    
+    
+    
+        }],
 //        disableSelection: true,
         itemTpl: Ext.create('Ext.XTemplate', 
             '<div>',

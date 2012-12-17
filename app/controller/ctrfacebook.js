@@ -11,10 +11,10 @@ Ext.define('SoCool.controller.ctrfacebook', {
             '#fbLoginBtn': {
                 tap: 'onFbLoginBtn'
             }
-        },
-        stores:	[
-    		'Config'
-    	]
+        }
+//        stores:	[
+ //   		'Config'
+ //   	]
     },
     
 
@@ -33,6 +33,8 @@ Ext.define('SoCool.controller.ctrfacebook', {
 		        cookie     : true, // enable cookies to allow Parse to access the session
 		        xfbml      : true  // parse XFBML
 		    });
+		    SoCool.app.getController('SoCool.controller.ctrfacebook').onActionByLoginStatus();
+		    
 		};
 
         (function(d){
@@ -40,9 +42,7 @@ Ext.define('SoCool.controller.ctrfacebook', {
             js = d.createElement('script'); js.id = id; js.async = true;
             js.src = "//connect.facebook.net/en_US/all.js";
             d.getElementsByTagName('head')[0].appendChild(js);
-        }(document));
-
-
+       }(document));
     },
     
 
@@ -51,6 +51,7 @@ Ext.define('SoCool.controller.ctrfacebook', {
     },
     // Redirect to Facebook when the user taps the Facebook Login button
     onFbLogin: function() {
+
         Parse.FacebookUtils.logIn(null, {
 	        success: function(user) {
 		        if (!user.existed()) {
@@ -82,8 +83,9 @@ Ext.define('SoCool.controller.ctrfacebook', {
     // the user's ID, a valid access token, a signed
     // request, and the time the access token 
     // and signed request each expire
-			    var uid = response.authResponse.userID;
-			    var accessToken = response.authResponse.accessToken;
+    	//			    var uid = response.authResponse.userID;
+	//			    var accessToken = response.authResponse.accessToken;
+
     			console.log("Connected");
     			Ext.getCmp('loginBtn').hide();
     			Ext.getCmp('basketPopUpBtn').show();

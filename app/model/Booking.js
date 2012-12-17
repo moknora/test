@@ -5,7 +5,6 @@ Ext.define('SoCool.model.Booking', {
         fields: [
             {name: 'rottonId', type: 'auto'},
             {name: 'title', type: 'auto'},
-            {name: 'subTitle', type: 'auto'},
             {name: 'schedule', type: 'auto'},
             {name: 'location', type: 'auto'},
             {name: 'description', type: 'auto'},
